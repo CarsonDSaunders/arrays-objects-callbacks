@@ -125,7 +125,21 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
   and the second item in the array being the odds array (all the odd values from numbersArray).
 */
 
-//Code Here
+function divider( numbersArray ) {
+  let divArray = [];
+  let evensArray = [];
+  let oddsArray = []
+  for(let i = 0; i <= numbersArray.length - 1; i++) {
+    if (numbersArray[i] % 2 === 0) {
+      evensArray.push(numbersArray[i]);
+    } else {
+      oddsArray.push(numbersArray[i]);
+    }
+  }
+  divArray.push(evensArray);
+  divArray.push(oddsArray);
+  return divArray;
+}
 
 
 
@@ -147,7 +161,16 @@ var getRandomArbitrary = function() {
   If it is, return true, if it's not, return false
 */
 
-//Code Here
+function finder( numbers ) {
+  let randomNumber = getRandomArbitrary();
+  let isThere = false;
+  for(let i = 0; i <= numbers.length - 1; i++) {
+    if (numbers[i] === randomNumber) {
+      isThere = true;
+    }
+  }
+  return isThere;
+}
 
 
 
@@ -160,10 +183,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 /*
   Here we're going to write a function that mimics going shopping and checking things off of our grocery list and adding new items to our list.
 
-  Write a function called removeItem that is given two arguments, the first is myGroceryList, and the second is an item to remove from myGroceryList. 
-  If the second argument (or the item to add or remove) matches an item in myGroceryList, remove that item from the your grocery list and return the new, updated grocery list.
+  Write a function called removeItem that is given two arguments, 
+  the first is myGroceryList, and the second is an item to remove from myGroceryList. 
+  If the second argument (or the item to add or remove) matches an item in myGroceryList, 
+  remove that item from the your grocery list and return the new, updated grocery list.
 
-  Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. 
+  Once you do that, write another function called addItem that is given two arguments, 
+  the first is myGroceryList and the second is an item to add to your grocery list. 
   In addItem add the item you passed in to myGroceryList then return the new, updated grocery list.
 
   In both removeItem and addItem check to see if the 'myGroceryList' and 'item' arguments are truthy.
@@ -176,7 +202,29 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   addItem() --> [];
 */
 
-//Code Here
+function removeItem( myGroceryList, item ) {
+  if (myGroceryList && item) {
+    for (let i = 0; i <= myGroceryList.length - 1; i++) {
+      if (myGroceryList[i] === item) {
+        myGroceryList.splice(i, 1);
+      }
+    }
+    return myGroceryList;
+  } else {
+    let emptyArray = [];
+    return emptyArray;
+  }
+}
+
+function addItem( myGroceryList, item ) {
+  if (myGroceryList && item) {
+    myGroceryList.push(item);
+    return myGroceryList;
+  } else {
+    let emptyArray = [];
+    return emptyArray;
+  }
+}
 
 
 
@@ -186,7 +234,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 */
 
-//Code Here
+function maker() {
+  let arr = []
+  for (let i = 1; i <= 215; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
 
 
 
@@ -202,7 +256,14 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   Your output should look like this -> [15, 19, 26, 29, 35, 44, 58]
 */
   
-//Code Here
+function addTen( numbers ) {
+  let newArray = []
+  for (let i = 0; i <= numbers.length - 1; i++) {
+    numbers[i] = Number(numbers[i]);
+    newArray[i] = numbers[i] + 10;
+  }
+  return newArray;
+}
 
 
 
@@ -227,7 +288,12 @@ for(var i = 0; i < num2; i++){
   Return the longer of the two arrays.
 */
 
-//Code Here
+function longer( arr1, arr2 ) {
+  let longerArray = arr1.length > arr2.length
+    ? arr1
+    : arr2;
+    return longerArray;
+}
 
 
 
@@ -239,7 +305,16 @@ for(var i = 0; i < num2; i++){
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
-//Code Here
+function both( arr1, arr2 ) {
+  let niceArray = longer( arr1, arr2);
+  let newArray = [];
+  for (let i = 0; i < niceArray.length; i++) {
+    if (arr1.includes(niceArray[i]) && arr2.includes(niceArray[i])) {
+      newArray.push(niceArray[i]);
+    }
+  }
+  return newArray;
+}
 
 
 
@@ -280,8 +355,10 @@ var colt = {
   After that, console.log the length of the Array and make sure that it's equal to 4. 
 */
 
-//Code Here
-
+devMountainEmployees.push(joe);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
 
 
 /*
@@ -289,7 +366,11 @@ var colt = {
   Loop through your devMountainEmployees until you find cahlan, then remove him from the array.
 */
 
-//Code Here
+for (i = 0; i <= devMountainEmployees.length - 1; i++) {
+  if (devMountainEmployees[i].name === "Cahlan") {
+    devMountainEmployees.splice(i, 1);
+  }
+}
 
 
 
@@ -301,7 +382,7 @@ var colt = {
   Create an empty array called users.
 */
 
-//Code Here
+let users = [];
 
 
 
@@ -318,11 +399,28 @@ var user1 = {
     name: 'Mark McIver',
     email: 'mark.mciver@devmounta.in',
     password: 'hunter2',
-    username: 'ihazcode'
+    username: 'ihazcode',
 };
 // Do not edit the code above.
 
-//Code Here
+var user2 = {
+  name: 'Adam Norton',
+  email: 'adam.n@gmail.com',
+  password: 'jfdiqj342f9k!',
+  username: 'niceguy3',
+};
+
+var user3 = {
+  name: 'Jayne Glasgow',
+  email: 'Smilygirly7@gmail.com',
+  password: 'Iluv2code',
+  username: 'jayne',
+};
+
+users.push(user1);
+users.push(user2);
+users.push(user3);
+
 
 
 
@@ -336,7 +434,11 @@ var user1 = {
   Once you find the array index he's located in, delete him from the array.
 */
 
-//Code Here
+for (i = 0; i <= users.length - 1; i++) {
+  if (users[i].email === "mark.mciver@devmounta.in") {
+    users.splice(i, 1);
+  }
+}
 
 
 
