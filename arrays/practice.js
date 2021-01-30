@@ -34,7 +34,7 @@ var arr = [40,50,60];
   Return the last item in the given array.
 */
 function last( arr ) {
-  return arr.pop();
+  return arr[arr.length - 1];
 }
 
 
